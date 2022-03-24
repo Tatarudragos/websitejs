@@ -8,6 +8,9 @@ $("#modalForm").on('show.bs.modal', function(event) {
   $("#modalForm").on('hidden.bs.modal', function(event) {
     
     alert('Modalul s-a inchis');
-    document.getElementById('button').classList.remove('btn-primary');
+    document.getElementById('button1').classList.remove('btn-primary');
+    button.classList.add('bg-success');
+    alert('Modalul s-a inchis');
+    document.getElementById('button2').classList.remove('btn-primary');
     button.classList.add('bg-success');
   })
