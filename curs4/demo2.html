@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1> 1 Bitcoin </h1>
+    <div id="data"></div>
+    <div id="bit"></div>
+    <button>demo</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+    <script>
+
+
+        $(document).ready(function () {
+            $("button").click(function () {
+                let url="https://api.coindesk.com/v1/bpi/currentprice.json";
+                $.getJSON( url ,
+                    
+
+                    function (result) {
+                        $("div#data").append(result.time.updated);
+                        $("div#bit").append(result.bpi.EUR.rate);
+                        console.log(result);
+
+                    }
+                );
+            });
+        });
+        // folosim un proxi  https://cors-anywhere.herokuapp.com/corsdemo
+        // https://cors-anywhere.herokuapp.com
+        // var xmlhttp = new XMLHttpRequest();
+        // var url = "https://api.coindesk.com/v1/bpi/currentprice.json";
+        // $(document).ready(function () {
+        //     $("button").click(function () {
+        //         $.getJSON(
+        //             "https://programming-quotes-api.herokuapp.com/quotes/random", 
+        //             function (result) { 
+        //                     $("div#demo").append(result.en + " " +result.author +"<br><br>" );
+        //             }
+        //         );
+        //     });
+        // });
+
+        // xmlhttp.onreadystatechange = function () {
+        //     if (this.readyState == 4 && this.status == 200) {
+        //         var myArr = JSON.parse(this.responseText);
+        //         myFunction(myArr);
+        //     }
+        // };
+        // xmlhttp.open("GET", url, true);
+        // xmlhttp.send();
+
+        // function myFunction(data) {
+        //     var out = "";
+        //     var i;
+        //     console.log(data.bpi);
+        //     document.getElementById("data").innerHTML = data.time.updated;
+        // //         out += `
+        // //         <ul>
+        // <li>EUR: ${data.bpi.EUR.rate}</li>
+        // <li>GBP: ${data.bpi.GBP.rate}</li>
+        // <li>USD: ${data.bpi.USD.rate}</li>
+        // </ul>
+        //         `
+
+        //     document.getElementById("bit").innerHTML = out;
+
+        // }
+        $(document).ready(function () {
+        $("button").click(function () {
+            $.ajax(
+               "https://api.coindesk.com/v1/bpi/currentprice.json";
+               
+                {
+                    type: 'GET',  // http method
+                    //headers: {"Access-Control-Allow-Headers:": "*"},
+                    //headers: {"Access-Control-Allow-Origin:": "*"},
+                    dataType: 'json', // type of response data
+                    success: function (result, status, xhr) {   // success callback function
+                        $('div#demo').append(data.en + ' ' + data.author + '<br><br>' );
+                    },
+                    error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                        $('div#demo').append('Error: ' + errorMessage);
+                    }
+                    complete:function(){
+                        console.log("Cererea s-a terminat!!")
+                    }
+                });
+        });
+    });
+
+    </script>
+
+</body>
+
+
+</html>
